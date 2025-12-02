@@ -129,7 +129,7 @@
         /* Lottery number display */
         .lottery-number {
             position: absolute;
-            top: 1150px;
+            top: 1050px;
             left: 50%;
             transform: translateX(-50%);
             color: #ffffff;
@@ -499,6 +499,19 @@
 
             // Hide reset button
             this.classList.remove('visible');
+        });
+
+        document.addEventListener('keydown', function(event) {
+            // Check if spacebar was pressed (key code 32 or key name 'Space')
+            if (event.code === 'Space' || event.keyCode === 32) {
+                event.preventDefault(); // Prevent page scroll
+                
+                // Simulate click on the main button
+                const comenzarButton = document.getElementById('comenzarButton');
+                if (!comenzarButton.disabled && !isAnimating) {
+                    comenzarButton.click();
+                }
+            }
         });
     </script>
 </body>
